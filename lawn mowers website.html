@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NooZ Lawn Mowers — Nakuru County, Kuresoi North</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#123D2C;
+    --green-mid:#1E7A46;
+    --green-bright:#2FA95C;
+    --green-light:#BFE6C7;
+    --cream:#F6FAF3;
+    --white:#FFFFFF;
+    --yellow:#FFC72C;
+    --yellow-dark:#E6A800;
+    --ink:#0E2419;
+    --ink-soft:#3E5748;
+    --stripe-a: #1E7A46;
+    --stripe-b: #226F41;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(14,36,25,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Outfit', sans-serif;
+    color:var(--green-deep);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .container{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .mow-stripes{
+    background-image: repeating-linear-gradient(
+      115deg,
+      var(--stripe-a) 0px, var(--stripe-a) 46px,
+      var(--stripe-b) 46px, var(--stripe-b) 92px
+    );
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Outfit', sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--green-mid);
+    margin-bottom:14px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 26px; border-radius:999px; font-family:'Outfit',sans-serif;
+    font-weight:600; font-size:15px; cursor:pointer; border:none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform: translateY(-2px);}
+  .btn-primary{background:var(--yellow); color:var(--ink); box-shadow:0 8px 20px rgba(255,199,44,0.4);}
+  .btn-primary:hover{background:var(--yellow-dark);}
+  .btn-outline{background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.7);}
+  .btn-outline:hover{background:rgba(255,255,255,0.12);}
+  .btn-outline-dark{background:transparent; color:var(--green-deep); border:2px solid var(--green-deep);}
+  .btn-outline-dark:hover{background:var(--green-deep); color:var(--white);}
+  .btn-small{padding:10px 18px; font-size:13px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid rgba(18,61,44,0.08);
+  }
+  .header-top{
+    background:var(--green-deep); color:var(--green-light);
+    font-size:12.5px; font-family:'Outfit',sans-serif; font-weight:500;
+  }
+  .header-top .container{
+    display:flex; justify-content:flex-end; gap:20px; padding-top:7px; padding-bottom:7px; flex-wrap:wrap;
+  }
+  .header-top a{display:flex; align-items:center; gap:6px; color:var(--green-light);}
+  .header-top a:hover{color:var(--yellow);}
+  .header-top svg{width:14px; height:14px; flex-shrink:0;}
+  .nav-wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{width:42px; height:42px;}
+  .logo-text{font-family:'Outfit',sans-serif; font-weight:800; font-size:20px; color:var(--green-deep); line-height:1.05;}
+  .logo-text span{display:block; font-size:10.5px; font-weight:600; letter-spacing:0.06em; color:var(--green-mid); text-transform:uppercase;}
+  nav ul{display:flex; align-items:center; gap:30px;}
+  nav a{font-family:'Outfit',sans-serif; font-weight:500; font-size:14.5px; color:var(--ink-soft);}
+  nav a:hover{color:var(--green-mid);}
+  .nav-cta{display:flex; align-items:center;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
+  .menu-toggle svg{width:26px;height:26px;color:var(--green-deep);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    color:var(--white);
+    padding:110px 0 140px;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(9,30,20,0.55), rgba(9,30,20,0.78)),
+      linear-gradient(120deg, #0C2E1E 0%, #164B33 55%, #1E7A46 100%);
+    z-index:0;
+  }
+  .hero-stripes{
+    position:absolute; inset:0; opacity:0.16; z-index:0;
+  }
+  .hero .container{position:relative; z-index:1;}
+  .hero-inner{max-width:640px;}
+  .hero h1{
+    font-size:clamp(34px, 5.2vw, 56px);
+    line-height:1.05; color:var(--white);
+    margin-bottom:20px;
+  }
+  .hero h1 em{font-style:normal; color:var(--yellow);}
+  .hero p.lead{font-size:17.5px; color:rgba(255,255,255,0.88); max-width:520px; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px;}
+  .hero-stats{display:flex; gap:36px; flex-wrap:wrap;}
+  .hero-stat b{display:block; font-family:'Outfit',sans-serif; font-size:26px; color:var(--yellow); font-weight:700;}
+  .hero-stat span{font-size:13px; color:rgba(255,255,255,0.75);}
+  .hero-visual{
+    position:absolute; right:-40px; bottom:-30px; width:420px; z-index:1; opacity:0.95;
+  }
+  @media(max-width:980px){ .hero-visual{display:none;} }
+
+  /* section shells */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px); margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+
+  .divider{height:10px;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--white);}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+  .about-text p{color:var(--ink-soft); margin-bottom:16px; font-size:15.5px;}
+  .about-visual{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  }
+  .about-card{
+    border-radius:var(--radius); padding:26px; min-height:220px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    color:var(--white); position:relative; overflow:hidden;
+  }
+  .about-card.equip{background:linear-gradient(160deg,#123D2C,#1E7A46);}
+  .about-card.after{background:linear-gradient(160deg,#2FA95C,#8FD19E); align-self:end;}
+  .about-card .tag{font-family:'Outfit',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.03em;}
+  .about-card svg{position:absolute; opacity:0.18; width:150px; height:150px; right:-20px; top:-20px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--cream);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .service-card{
+    background:var(--white); border-radius:var(--radius); padding:28px 24px;
+    box-shadow:var(--shadow); display:flex; flex-direction:column; gap:14px;
+    border-top:4px solid var(--green-bright);
+    transition: transform .15s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);}
+  .service-icon{
+    width:50px; height:50px; border-radius:12px; background:var(--green-light);
+    display:flex; align-items:center; justify-content:center; color:var(--green-deep);
+  }
+  .service-icon svg{width:26px;height:26px;}
+  .service-card h3{font-size:18px; margin-top:4px;}
+  .service-card p{color:var(--ink-soft); font-size:14px; flex-grow:1;}
+  .service-crops{display:flex; gap:8px; flex-wrap:wrap; margin:-4px 0 4px;}
+  .service-crops span{
+    font-size:11.5px; font-weight:600; background:var(--green-light); color:var(--green-deep);
+    padding:4px 10px; border-radius:999px;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--green-deep); color:var(--white); position:relative; overflow:hidden;}
+  .pricing .section-head h2, .pricing .section-head p{color:var(--white);}
+  .pricing .section-head p{color:rgba(255,255,255,0.75);}
+  .price-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:56px;}
+  .price-card{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--radius); padding:32px; text-align:center;
+  }
+  .price-card svg{width:34px;height:34px; color:var(--yellow); margin-bottom:12px;}
+  .price-card .num{font-family:'Outfit',sans-serif; font-size:44px; font-weight:800; color:var(--yellow);}
+  .price-card .num span{font-size:16px; font-weight:600; color:rgba(255,255,255,0.8);}
+  .price-card p{color:rgba(255,255,255,0.75); margin-top:8px; font-size:14px;}
+  .calc-box{
+    background:var(--white); color:var(--ink); border-radius:var(--radius);
+    padding:36px; box-shadow:var(--shadow); max-width:760px; margin:0 auto;
+  }
+  .calc-box h3{margin-bottom:6px;}
+  .calc-box > p{color:var(--ink-soft); font-size:14px; margin-bottom:22px;}
+  .calc-toggle{display:flex; gap:10px; margin-bottom:20px;}
+  .calc-toggle button{
+    flex:1; padding:10px; border-radius:10px; border:1.5px solid var(--green-light);
+    background:var(--cream); font-family:'Outfit',sans-serif; font-weight:600; font-size:13.5px;
+    color:var(--green-deep); cursor:pointer;
+  }
+  .calc-toggle button.active{background:var(--green-mid); color:var(--white); border-color:var(--green-mid);}
+  .calc-row{display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;}
+  .calc-field{flex:1; min-width:200px;}
+  .calc-field label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-soft); margin-bottom:6px;}
+  .calc-field input{
+    width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid #DCEBDF;
+    font-size:15px; font-family:'Inter',sans-serif;
+  }
+  .calc-field input:focus{outline:2px solid var(--green-mid); border-color:var(--green-mid);}
+  .calc-result{
+    background:var(--cream); border-radius:10px; padding:18px 20px; min-width:200px;
+    text-align:center;
+  }
+  .calc-result .amount{font-family:'Outfit',sans-serif; font-weight:800; font-size:26px; color:var(--green-deep);}
+  .calc-result span{font-size:12px; color:var(--ink-soft);}
+  .calc-note{display:flex; align-items:center; gap:8px; margin-top:22px; font-size:14px; color:var(--ink-soft);}
+
+  /* ---------- AREA ---------- */
+  .area{background:var(--cream);}
+  .area-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .area-text p{color:var(--ink-soft); margin-bottom:20px;}
+  .town-list{display:flex; flex-wrap:wrap; gap:10px;}
+  .town-list span{
+    background:var(--white); border:1px solid var(--green-light); padding:8px 16px; border-radius:999px;
+    font-size:13.5px; font-weight:600; color:var(--green-deep); font-family:'Outfit',sans-serif;
+  }
+  .map-box{
+    background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--white);}
+  .test-track{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .test-card{
+    background:var(--cream); border-radius:var(--radius); padding:28px; display:flex; flex-direction:column; gap:14px;
+  }
+  .stars{display:flex; gap:3px; color:var(--yellow);}
+  .stars svg{width:16px;height:16px;}
+  .test-card p{font-size:14.5px; color:var(--ink-soft); flex-grow:1;}
+  .test-who{display:flex; align-items:center; gap:10px;}
+  .test-avatar{
+    width:38px; height:38px; border-radius:50%; background:var(--green-mid); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-weight:700; font-size:14px;
+  }
+  .test-who b{display:block; font-size:14px; font-family:'Outfit',sans-serif;}
+  .test-who span{font-size:12px; color:var(--ink-soft);}
+
+  /* ---------- BLOG ---------- */
+  .blog{background:var(--cream);}
+  .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .blog-card{background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);}
+  .blog-thumb{height:150px; display:flex; align-items:center; justify-content:center; position:relative;}
+  .blog-thumb svg{width:56px;height:56px; color:rgba(255,255,255,0.9);}
+  .blog-thumb.b1{background:linear-gradient(140deg,#1E7A46,#2FA95C);}
+  .blog-thumb.b2{background:linear-gradient(140deg,#123D2C,#1E7A46);}
+  .blog-thumb.b3{background:linear-gradient(140deg,#2FA95C,#8FD19E);}
+  .blog-body{padding:22px;}
+  .blog-tag{font-size:11.5px; font-weight:700; color:var(--green-mid); text-transform:uppercase; letter-spacing:0.05em;}
+  .blog-body h3{font-size:16.5px; margin:8px 0 10px;}
+  .blog-body p{font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;}
+  .blog-link{font-family:'Outfit',sans-serif; font-weight:600; font-size:13.5px; color:var(--green-deep); display:inline-flex; align-items:center; gap:6px;}
+  .blog-link svg{width:14px;height:14px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--green-deep); color:var(--white);}
+  .contact .section-head h2, .contact .section-head p{color:var(--white);}
+  .contact .section-head p{color:rgba(255,255,255,0.75);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .contact-form{background:var(--white); border-radius:var(--radius); padding:32px; color:var(--ink);}
+  .form-row{margin-bottom:16px;}
+  .form-row label{display:block; font-size:12.5px; font-weight:600; margin-bottom:6px; color:var(--ink-soft);}
+  .form-row input, .form-row textarea{
+    width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid #DCEBDF; font-family:'Inter',sans-serif; font-size:14.5px;
+  }
+  .form-row input:focus, .form-row textarea:focus{outline:2px solid var(--green-mid); border-color:var(--green-mid);}
+  .contact-info-list{display:flex; flex-direction:column; gap:16px; margin-bottom:28px;}
+  .contact-info-item{
+    display:flex; align-items:center; gap:14px; background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:16px 18px;
+  }
+  .contact-info-item .ic{
+    width:40px; height:40px; border-radius:10px; background:var(--yellow); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-info-item .ic svg{width:20px;height:20px;}
+  .contact-info-item b{display:block; font-family:'Outfit',sans-serif; font-size:15px;}
+  .contact-info-item span{font-size:13px; color:rgba(255,255,255,0.75);}
+  .whatsapp-btn{
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:#25D366; color:var(--white); padding:16px; border-radius:12px;
+    font-family:'Outfit',sans-serif; font-weight:700; font-size:15px;
+  }
+  .whatsapp-btn svg{width:22px;height:22px;}
+  .friendly-note{margin-top:20px; font-size:14px; color:rgba(255,255,255,0.8); display:flex; align-items:center; gap:8px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:rgba(255,255,255,0.8); padding:0;}
+  .value-bar{
+    background:var(--yellow); color:var(--ink);
+  }
+  .value-bar .container{
+    display:flex; justify-content:center; gap:44px; flex-wrap:wrap; padding:22px 24px;
+  }
+  .value-item{display:flex; align-items:center; gap:10px; font-family:'Outfit',sans-serif; font-weight:600; font-size:14.5px;}
+  .value-item svg{width:20px;height:20px;}
+  .footer-main{padding:48px 0 24px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px;}
+  .footer-logo{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .footer-logo .logo-text{color:var(--white);}
+  .footer-logo .logo-text span{color:var(--green-light);}
+  .footer-grid p{font-size:13.5px; color:rgba(255,255,255,0.6); max-width:280px;}
+  .footer-col h4{color:var(--white); font-size:14px; margin-bottom:14px; font-family:'Outfit',sans-serif;}
+  .footer-col ul{display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{font-size:13.5px; color:rgba(255,255,255,0.65);}
+  .footer-col a:hover{color:var(--yellow);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.12); padding-top:20px; padding-bottom:28px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:rgba(255,255,255,0.5);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .about-grid, .area-grid, .contact-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .test-track, .blog-grid{grid-template-columns:1fr;}
+    .price-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:26px;}
+  }
+  @media(max-width:760px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .header-top .container{justify-content:center;}
+    .hero{padding:70px 0 90px;}
+    .hero-ctas .btn{width:100%;}
+    .service-grid{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn, .service-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="header-top">
+    <div class="container">
+      <a href="tel:0700277721"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 0700 277 721</a>
+      <a href="tel:0719103629"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0719 103 629</a>
+      <a href="tel:0724419376"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0724 419 376</a>
+      <a href="https://wa.me/254734565855" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.34A10 10 0 1 0 12 2zm5.6 14.3c-.24.66-1.4 1.26-1.94 1.34-.5.08-1.12.11-1.8-.11a13.4 13.4 0 0 1-1.9-.72 11.2 11.2 0 0 1-4.3-3.8 4.9 4.9 0 0 1-1-2.6c0-.75.4-1.13.55-1.29.14-.15.32-.19.43-.19h.35c.14 0 .32-.02.5.39.24.53.8 1.83.87 1.96.07.14.11.3.02.48-.08.18-.13.3-.25.45-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.14.26.63 1.05 1.36 1.7.94.85 1.73 1.11 1.98 1.24.25.13.4.11.55-.06.14-.16.6-.68.76-.92.16-.24.32-.2.53-.12.22.08 1.4.66 1.64.78.25.12.4.18.46.28.07.1.07.6-.17 1.26z"/></svg> WhatsApp: +254 734 565 855</a>
+    </div>
+  </div>
+  <div class="container nav-wrap">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="23" fill="#1E7A46"/>
+        <path d="M24 34c8-2 12-9 12-18-9 0-16 4-18 12" fill="#8FD19E"/>
+        <path d="M24 34c-8-2-12-9-12-18 9 0 16 4 18 12" fill="#2FA95C"/>
+        <path d="M24 34V16" stroke="#123D2C" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">NooZ<span>Lawn Mowers</span></span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#area">Area Covered</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary btn-small">Book Now</a>
+    </div>
+    <button class="menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <svg class="hero-stripes" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <pattern id="mow" width="16" height="16" patternTransform="rotate(115)" patternUnits="userSpaceOnUse">
+        <rect width="16" height="16" fill="#0C2E1E"/>
+        <rect width="8" height="16" fill="#164B33"/>
+      </pattern>
+    </defs>
+    <rect width="100" height="100" fill="url(#mow)"/>
+  </svg>
+  <svg class="hero-visual" viewBox="0 0 400 400" fill="none">
+    <ellipse cx="200" cy="360" rx="160" ry="20" fill="#0C2E1E" opacity="0.4"/>
+    <rect x="150" y="120" width="18" height="180" rx="9" fill="#FFC72C" transform="rotate(18 150 120)"/>
+    <circle cx="235" cy="270" r="34" fill="#123D2C" stroke="#8FD19E" stroke-width="4"/>
+    <circle cx="235" cy="270" r="14" fill="#2FA95C"/>
+    <path d="M60 340c40-90 120-140 220-120" stroke="#2FA95C" stroke-width="26" stroke-linecap="round" opacity="0.85"/>
+    <path d="M60 340c40-90 120-140 220-120" stroke="#8FD19E" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="150" cy="90" r="36" fill="#E7C9A9"/>
+    <path d="M120 90a30 30 0 0 1 60 0" fill="#1E7A46"/>
+    <rect x="118" y="120" width="64" height="90" rx="18" fill="#1E7A46"/>
+  </svg>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow" style="color:#BFE6C7"><span class="dot"></span>Serving Nakuru County · Kuresoi North</div>
+      <h1>We make your <em>lawn</em> look its best.</h1>
+      <p class="lead">Reliable, affordable, and expert lawn and land care — from a tidy residential garden to a full napier grass harvest. Trusted across Nakuru County for over a decade.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href="#services" class="btn btn-outline">Explore Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>10+ yrs</b><span>Serving local landowners</span></div>
+        <div class="hero-stat"><b>4 services</b><span>Mowing to harvesting</span></div>
+        <div class="hero-stat"><b>No hidden fees</b><span>Clear, upfront pricing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <div class="eyebrow"><span class="dot"></span>About Us</div>
+      <h2>Your partner in land care</h2>
+      <p>Welcome to NooZ Lawn Mowers. We handle lawn mowing, general grass cutting, farm harvesting, and bush and weed clearance for homes, businesses, and farms across Kuresoi North.</p>
+      <p>With over a decade of dedication to the craft, we bring technical expertise and a track record of successful land care projects to every job. Our team uses modern equipment and sustainable practices so that residential, commercial, and agricultural work alike stands the test of time.</p>
+      <p>Whatever your land needs, we're here to help you bring your vision to life — precisely, reliably, and affordably.</p>
+      <a href="#contact" class="btn btn-outline-dark btn-small">Talk to Our Team</a>
+    </div>
+    <div class="about-visual">
+      <div class="about-card equip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zM4 8h10v2H4zM4 12h16v2H4zM4 16h10v2H4z"/></svg>
+        <span class="tag">Modern Equipment</span>
+        <h4 style="color:#fff; font-size:17px;">Precision brush cutters &amp; trimmers</h4>
+      </div>
+      <div class="about-card after" style="margin-top:36px;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 22h20z"/></svg>
+        <span class="tag" style="color:#123D2C;">The Result</span>
+        <h4 style="color:#123D2C; font-size:17px;">A lawn that stands the test of time</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Our Services</div>
+      <h2>What we do</h2>
+      <p>Four services, one standard of care — precise, reliable, and built for Nakuru County's land.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Lawn Mowing</h3>
+        <p>Precision cutting for residential lawns, leaving clean, even lines every time.</p>
+        <a href="#contact" class="btn btn-outline-dark btn-small">Book Service</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Grass Cutting</h3>
+        <p>Efficient clearing for larger fields, compounds, and commercial grounds.</p>
+        <a href="#contact" class="btn btn-outline-dark btn-small">Book Service</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Farm Harvesting</h3>
+        <div class="service-crops"><span>Oats</span><span>Maize</span><span>Napier Grass</span></div>
+        <p>Careful, timely crop care and harvesting for your farm.</p>
+        <a href="#contact" class="btn btn-outline-dark btn-small">Book Service</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Bush &amp; Weed Clearance</h3>
+        <p>Strategic clearing that turns overgrown land into usable space.</p>
+        <a href="#contact" class="btn btn-outline-dark btn-small">Book Service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center; color:#8FD19E"><span class="dot"></span>Cost &amp; Hiring</div>
+      <h2>Simple, upfront pricing</h2>
+      <p>Choose whichever option fits your job — pay by the hour or by the square metre.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="num">Ksh 150 <span>/ hour</span></div>
+        <p>Best for smaller jobs and residential lawns.</p>
+      </div>
+      <div class="price-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="num">Ksh 15 <span>/ sq. metre</span></div>
+        <p>Best for larger plots, farms, and commercial land.</p>
+      </div>
+    </div>
+
+    <div class="calc-box">
+      <h3>Estimate calculator</h3>
+      <p>Get a quick, preliminary estimate for your job. Final pricing is confirmed on-site.</p>
+      <div class="calc-toggle">
+        <button type="button" class="active" id="tabHour" onclick="setCalcMode('hour')">By the Hour</button>
+        <button type="button" id="tabArea" onclick="setCalcMode('area')">By the Square Metre</button>
+      </div>
+      <div class="calc-row">
+        <div class="calc-field" id="hourField">
+          <label for="hoursInput">Estimated hours</label>
+          <input type="number" id="hoursInput" min="0" placeholder="e.g. 3" oninput="calcEstimate()">
+        </div>
+        <div class="calc-field" id="areaField" style="display:none;">
+          <label for="areaInput">Estimated area (m²)</label>
+          <input type="number" id="areaInput" min="0" placeholder="e.g. 500" oninput="calcEstimate()">
+        </div>
+        <div class="calc-result">
+          <div class="amount" id="calcAmount">Ksh 0</div>
+          <span>estimated cost</span>
+        </div>
+      </div>
+      <div class="calc-note">🙂 We ensure cost-effective, sustainable outcomes. No Hidden Fees!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AREA COVERED ================= -->
+<section class="area" id="area">
+  <div class="container area-grid">
+    <div class="area-text">
+      <div class="eyebrow"><span class="dot"></span>Area Covered</div>
+      <h2>Proudly local to Kuresoi North</h2>
+      <p>We serve Nakuru County, with dedicated coverage in Kuresoi North and the surrounding area. Our local team knows the land — and is committed to elevating the landscape of our community, one job at a time.</p>
+      <div class="town-list">
+        <span>Kuresoi North</span>
+        <span>Kuresoi South</span>
+        <span>Molo</span>
+        <span>Njoro</span>
+        <span>Nakuru Town</span>
+      </div>
+    </div>
+    <div class="map-box">
+      <svg viewBox="0 0 400 320" width="100%">
+        <rect width="400" height="320" rx="12" fill="#EAF6EC"/>
+        <path d="M40 60 L140 40 L230 70 L320 50 L360 110 L330 180 L360 240 L280 280 L180 270 L100 290 L50 230 L70 150 Z" fill="#BFE6C7" stroke="#2FA95C" stroke-width="2"/>
+        <path d="M100 100 L160 90 L200 130 L180 180 L120 190 L90 150 Z" fill="#8FD19E" stroke="#1E7A46" stroke-width="1.5"/>
+        <circle cx="150" cy="140" r="7" fill="#FFC72C" stroke="#123D2C" stroke-width="2"/>
+        <path d="M150 140 v-26" stroke="#123D2C" stroke-width="2"/>
+        <path d="M150 90 C138 90 130 100 130 111 C130 125 150 145 150 145 C150 145 170 125 170 111 C170 100 162 90 150 90 Z" fill="#E63946" stroke="#123D2C" stroke-width="1.5"/>
+        <text x="158" y="82" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="#123D2C">Kuresoi North</text>
+        <text x="200" y="240" font-family="Outfit, sans-serif" font-size="11" fill="#1E7A46">Nakuru County</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center"><span class="dot"></span>What Clients Say</div>
+      <h2>Reliable service, real results</h2>
+    </div>
+    <div class="test-track">
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+        </div>
+        <p>"We needed our napier grass field in Kuresoi North harvested quickly. NooZ's farm harvesting team was fast, reliable, and affordable. Highly recommend them for their technical expertise!"</p>
+        <div class="test-who">
+          <div class="test-avatar">JK</div>
+          <div><b>James K.</b><span>Farm owner, Kuresoi North</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+        </div>
+        <p>Our compound lawn had been neglected for months. The NooZ team turned it around in an afternoon and the pricing was exactly what they quoted — no surprises.</p>
+        <div class="test-who">
+          <div class="test-avatar">AW</div>
+          <div><b>Agnes W.</b><span>Homeowner, Nakuru Town</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>
+        </div>
+        <p>We hired NooZ to clear a heavily overgrown plot before construction. They handled the bush and weed clearance safely and were done in two days.</p>
+        <div class="test-who">
+          <div class="test-avatar">DM</div>
+          <div><b>David M.</b><span>Property developer, Molo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Blog &amp; Insights</div>
+      <h2>Expert guidance for your land</h2>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-thumb b1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M4 12h16M6 6l12 12M18 6 6 18"/></svg></div>
+        <div class="blog-body">
+          <span class="blog-tag">Lawn Care</span>
+          <h3>Tips for maintaining your lawn in Nakuru County</h3>
+          <p>Simple, seasonal habits that keep a lawn healthy through Nakuru's rainy and dry spells.</p>
+          <a href="#contact" class="blog-link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-thumb b2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10l8-6 8 6v10M9 20v-6h6v6"/></svg></div>
+        <div class="blog-body">
+          <span class="blog-tag">Farm Harvesting</span>
+          <h3>Understanding napier grass harvesting in Kuresoi North</h3>
+          <p>What to know about timing, technique, and yield when harvesting napier grass locally.</p>
+          <a href="#contact" class="blog-link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-thumb b3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M6 21V9l6-6 6 6v12"/></svg></div>
+        <div class="blog-body">
+          <span class="blog-tag">Land Clearance</span>
+          <h3>Seasonal weed clearance strategies: a guide from the NooZ team</h3>
+          <p>A practical approach to keeping weeds and bush under control across the seasons.</p>
+          <a href="#contact" class="blog-link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center; color:#8FD19E"><span class="dot"></span>Contact Us</div>
+      <h2>Let's get your land looking its best</h2>
+      <p>Reach out for a free estimate — we usually respond the same day.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><b>0700 277 721</b><span>Call for a free estimate</span></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><b>0719 103 629</b><span>Alternative line</span></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><b>0724 419 376</b><span>Alternative line</span></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><b>Kuresoi North</b><span>Nakuru County, Kenya</span></div>
+          </div>
+        </div>
+        <a href="https://wa.me/254734565855" target="_blank" rel="noopener" class="whatsapp-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.34A10 10 0 1 0 12 2zm5.6 14.3c-.24.66-1.4 1.26-1.94 1.34-.5.08-1.12.11-1.8-.11a13.4 13.4 0 0 1-1.9-.72 11.2 11.2 0 0 1-4.3-3.8 4.9 4.9 0 0 1-1-2.6c0-.75.4-1.13.55-1.29.14-.15.32-.19.43-.19h.35c.14 0 .32-.02.5.39.24.53.8 1.83.87 1.96.07.14.11.3.02.48-.08.18-.13.3-.25.45-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.14.26.63 1.05 1.36 1.7.94.85 1.73 1.11 1.98 1.24.25.13.4.11.55-.06.14-.16.6-.68.76-.92.16-.24.32-.2.53-.12.22.08 1.4.66 1.64.78.25.12.4.18.46.28.07.1.07.6-.17 1.26z"/></svg>
+          Message us on WhatsApp: +254 734 565 855
+        </a>
+        <p class="friendly-note">🙂 Thanks for your time — we look forward to hearing from you!</p>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); this.reset(); document.getElementById('formOk').style.display='block';">
+        <div class="form-row"><label for="name">Full name</label><input id="name" type="text" required placeholder="Your name"></div>
+        <div class="form-row"><label for="phone">Phone number</label><input id="phone" type="tel" required placeholder="07XX XXX XXX"></div>
+        <div class="form-row"><label for="service">Service needed</label><input id="service" type="text" placeholder="e.g. Lawn mowing"></div>
+        <div class="form-row"><label for="msg">Message</label><textarea id="msg" rows="4" placeholder="Tell us about your land and location"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Request Free Estimate</button>
+        <p id="formOk" style="display:none; margin-top:12px; font-size:13.5px; color:#1E7A46; font-weight:600;">Thanks — we'll be in touch shortly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="value-bar">
+    <div class="container value-item">
+      <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Reliable Service</div>
+      <div class="value-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z" opacity="0"/><path d="M17 8c0 5-5 9-5 9s-5-4-5-9a5 5 0 0 1 10 0z"/></svg> Affordable Rates</div>
+      <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-6 0v4H4l1 11h14l1-11h-6z"/></svg> Customer Satisfaction</div>
+    </div>
+  </div>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <svg class="logo-mark" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="23" fill="#1E7A46"/>
+              <path d="M24 34c8-2 12-9 12-18-9 0-16 4-18 12" fill="#8FD19E"/>
+              <path d="M24 34c-8-2-12-9-12-18 9 0 16 4 18 12" fill="#2FA95C"/>
+            </svg>
+            <span class="logo-text">NooZ<span>Lawn Mowers</span></span>
+          </div>
+          <p>Reliable, affordable, and expert lawn and land care for Nakuru County, based in Kuresoi North.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#area">Area Covered</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:0700277721">0700 277 721</a></li>
+            <li><a href="tel:0719103629">0719 103 629</a></li>
+            <li><a href="tel:0724419376">0724 419 376</a></li>
+            <li><a href="https://wa.me/254734565855">+254 734 565 855</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NooZ Lawn Mowers. All rights reserved.</span>
+        <span>Kuresoi North, Nakuru County, Kenya</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let calcMode = 'hour';
+  function setCalcMode(mode){
+    calcMode = mode;
+    document.getElementById('tabHour').classList.toggle('active', mode==='hour');
+    document.getElementById('tabArea').classList.toggle('active', mode==='area');
+    document.getElementById('hourField').style.display = mode==='hour' ? 'block' : 'none';
+    document.getElementById('areaField').style.display = mode==='area' ? 'block' : 'none';
+    calcEstimate();
+  }
+  function calcEstimate(){
+    let amount = 0;
+    if(calcMode === 'hour'){
+      const hrs = parseFloat(document.getElementById('hoursInput').value) || 0;
+      amount = hrs * 150;
+    } else {
+      const area = parseFloat(document.getElementById('areaInput').value) || 0;
+      amount = area * 15;
+    }
+    document.getElementById('calcAmount').textContent = 'Ksh ' + amount.toLocaleString('en-KE', {maximumFractionDigits:0});
+  }
+</script>
+
+</body>
+</html>
