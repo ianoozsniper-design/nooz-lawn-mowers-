@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NooZ Lawn Mowers | Expert Lawn & Land Care in Nakuru County</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -41,7 +38,6 @@
 </head>
 <body class="font-sans text-gray-800 bg-slate-50 antialiased">
 
-    <!-- TOP QUICK BAR -->
     <div class="bg-brand-dark text-white text-xs sm:text-sm py-2 px-4 shadow-inner">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
             <div class="flex items-center space-x-2">
@@ -49,17 +45,16 @@
                 <span>Serving Nakuru County & Specializing in Kuresoi North</span>
             </div>
             <div class="flex flex-wrap items-center justify-center gap-4">
-                <a href="tel:0700277721" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone text-xs mr-1 text-green-400"></i>0700 277 721</a>
-                <a href="tel:0719103629" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone text-xs mr-1 text-green-400"></i>0719 103 629</a>
+                <a href="tel:0104401482" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone text-xs mr-1 text-green-400"></i>0104 401 482</a>
+                <a href="tel:0100372390" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone text-xs mr-1 text-green-400"></i>0100 372 390</a>
+                <a href="tel:0735530333" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone text-xs mr-1 text-green-400"></i>0735 530 333</a>
                 <a href="https://wa.me/254734565855" target="_blank" class="hover:text-brand-accent transition text-green-400 font-semibold"><i class="fa-brands fa-whatsapp text-sm mr-1"></i>+254 734 565 855</a>
             </div>
         </div>
     </div>
 
-    <!-- STICKY HEADER -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-green-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-            <!-- LOGO -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center text-brand-accent shadow-md group-hover:scale-105 transition">
                     <i class="fa-solid fa-leaf text-2xl"></i>
@@ -70,7 +65,6 @@
                 </div>
             </a>
 
-            <!-- DESKTOP NAV -->
             <nav class="hidden lg:flex items-center gap-8 font-semibold text-gray-700 text-sm">
                 <a href="#about" class="hover:text-brand-lightgreen transition">About Us</a>
                 <a href="#services" class="hover:text-brand-lightgreen transition">Our Services</a>
@@ -79,20 +73,17 @@
                 <a href="#blog" class="hover:text-brand-lightgreen transition">Blog</a>
             </nav>
 
-            <!-- CTA BUTTON -->
             <div class="hidden sm:flex items-center gap-3">
                 <a href="#contact" class="bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
                     <i class="fa-solid fa-calendar-check"></i> Book Now
                 </a>
             </div>
 
-            <!-- MOBILE MENU BUTTON -->
             <button id="mobile-menu-btn" class="lg:hidden text-2xl text-brand-dark focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- MOBILE NAV MENU -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
             <a href="#about" class="block py-2 text-gray-700 font-medium">About Us</a>
             <a href="#services" class="block py-2 text-gray-700 font-medium">Our Services</a>
@@ -103,7 +94,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="relative bg-brand-dark text-white overflow-hidden py-20 lg:py-32">
         <div class="absolute inset-0 z-0 opacity-40">
             <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb16432?auto=format&fit=crop&w=1920&q=80" alt="Lawn Mowing Landscape" class="w-full h-full object-cover">
@@ -116,7 +106,7 @@
                 <div class="inline-flex items-center gap-2 bg-brand-lightgreen/30 border border-green-400/40 text-green-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                     <i class="fa-solid fa-shield-halved"></i> Nakuru County's Trusted Land Care Specialist
                 </div>
-                
+
                 <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-white">
                     WE MAKE YOUR LAWN <br class="hidden sm:inline"><span class="text-brand-accent">LOOK ITS BEST!</span>
                 </h1>
@@ -134,7 +124,6 @@
                     </a>
                 </div>
 
-                <!-- VALUE COUNTERS -->
                 <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 mt-8 max-w-lg mx-auto lg:mx-0">
                     <div>
                         <span class="block text-2xl sm:text-3xl font-extrabold text-brand-accent">10+</span>
@@ -153,11 +142,9 @@
         </div>
     </section>
 
-    <!-- ABOUT US SECTION -->
     <section id="about" class="py-20 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Text Column -->
                 <div class="space-y-6">
                     <div class="inline-block bg-green-100 text-brand-lightgreen font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                         Your Partner in Land Care
@@ -171,7 +158,7 @@
                     <p class="text-gray-600 leading-relaxed">
                         With over a decade of dedication, we bring technical expertise and a track record of successful land care projects. Our team utilizes modern equipment and sustainable practices to ensure that every project—whether residential, commercial, or agricultural—stands the test of time for precision and quality. Let us help you bring your vision to life.
                     </p>
-                    
+
                     <div class="grid sm:grid-cols-2 gap-4 pt-4">
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-circle-check text-brand-lightgreen text-xl mt-1"></i>
@@ -190,7 +177,6 @@
                     </div>
                 </div>
 
-                <!-- Visual Column: Split Screen Concept -->
                 <div class="relative">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4">
@@ -215,7 +201,6 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
     <section id="services" class="py-20 bg-brand-soft border-y border-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -225,7 +210,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 flex flex-col justify-between overflow-hidden group">
                     <div>
                         <div class="relative h-48 overflow-hidden">
@@ -246,7 +230,6 @@
                     </div>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 flex flex-col justify-between overflow-hidden group">
                     <div>
                         <div class="relative h-48 overflow-hidden">
@@ -267,7 +250,6 @@
                     </div>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 flex flex-col justify-between overflow-hidden group">
                     <div>
                         <div class="relative h-48 overflow-hidden">
@@ -289,7 +271,6 @@
                     </div>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 flex flex-col justify-between overflow-hidden group">
                     <div>
                         <div class="relative h-48 overflow-hidden">
@@ -313,7 +294,6 @@
         </div>
     </section>
 
-    <!-- COST & HIRING (PRICING & CALCULATOR) SECTION -->
     <section id="pricing" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -322,9 +302,7 @@
                 <p class="text-gray-600 mt-2">Choose the billing model that best fits your land and project scale.</p>
             </div>
 
-            <!-- PRICING OPTIONS SIDE-BY-SIDE -->
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-                <!-- Option 1 -->
                 <div class="bg-gradient-to-b from-green-50 to-white rounded-3xl p-8 border-2 border-brand-lightgreen/30 relative shadow-md flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-start mb-4">
@@ -343,7 +321,6 @@
                     </a>
                 </div>
 
-                <!-- Option 2 -->
                 <div class="bg-gradient-to-b from-yellow-50 to-white rounded-3xl p-8 border-2 border-brand-accent/40 relative shadow-md flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-start mb-4">
@@ -363,7 +340,6 @@
                 </div>
             </div>
 
-            <!-- INTERACTIVE ESTIMATE CALCULATOR TOOL -->
             <div id="calculator" class="max-w-3xl mx-auto bg-brand-dark text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
                     <div class="flex items-center gap-3 mb-6">
@@ -410,7 +386,6 @@
         </div>
     </section>
 
-    <!-- AREA COVERED SECTION -->
     <section id="coverage" class="py-20 bg-slate-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -439,7 +414,6 @@
                     </div>
                 </div>
 
-                <!-- MAP GRAPHIC PLACEHOLDER -->
                 <div class="bg-brand-dark rounded-3xl p-8 text-white relative overflow-hidden shadow-xl min-h-[320px] flex flex-col justify-between">
                     <div class="absolute inset-0 leaf-pattern opacity-20"></div>
                     <div class="relative z-10 flex justify-between items-start">
@@ -465,7 +439,6 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -475,7 +448,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
                 <div class="bg-brand-soft rounded-2xl p-6 border border-green-100 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex text-brand-accent gap-1 mb-4">
@@ -496,7 +468,6 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
                 <div class="bg-brand-soft rounded-2xl p-6 border border-green-100 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex text-brand-accent gap-1 mb-4">
@@ -517,7 +488,6 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 3 -->
                 <div class="bg-brand-soft rounded-2xl p-6 border border-green-100 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex text-brand-accent gap-1 mb-4">
@@ -541,7 +511,6 @@
         </div>
     </section>
 
-    <!-- BLOG / INSIGHTS SECTION -->
     <section id="blog" class="py-20 bg-slate-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -599,13 +568,11 @@
         </div>
     </section>
 
-    <!-- CONTACT US & FOOTER SECTION -->
     <footer id="contact" class="bg-brand-dark text-white pt-20 pb-8 relative overflow-hidden">
         <div class="absolute inset-0 leaf-pattern opacity-10"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
+
             <div class="grid lg:grid-cols-12 gap-12 mb-16">
-                <!-- Contact Info & WhatsApp -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-brand-lightgreen text-brand-accent rounded-full flex items-center justify-center font-bold text-xl">
@@ -618,15 +585,18 @@
                         Ready for professional lawn care, farm harvesting, or bush clearance in Nakuru County & Kuresoi North? Reach out to us directly for quick bookings!
                     </p>
 
-                    <!-- Phone List -->
                     <div class="space-y-3 pt-2">
-                        <a href="tel:0700277721" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition">
+                        <a href="tel:0104401482" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition">
                             <i class="fa-solid fa-phone text-brand-accent"></i>
-                            <span class="font-bold text-sm">0700 277 721</span>
+                            <span class="font-bold text-sm">0104 401 482</span>
                         </a>
-                        <a href="tel:0719103629" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition">
+                        <a href="tel:0100372390" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition">
                             <i class="fa-solid fa-phone text-brand-accent"></i>
-                            <span class="font-bold text-sm">0719 103 629</span>
+                            <span class="font-bold text-sm">0100 372 390</span>
+                        </a>
+                        <a href="tel:0735530333" class="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition">
+                            <i class="fa-solid fa-phone text-brand-accent"></i>
+                            <span class="font-bold text-sm">0735 530 333</span>
                         </a>
                         <a href="https://wa.me/254734565855" target="_blank" class="flex items-center justify-between bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-xl font-bold transition shadow-lg">
                             <span class="flex items-center gap-2 text-sm"><i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp</span>
@@ -640,7 +610,6 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <div class="lg:col-span-7 bg-white text-gray-900 rounded-3xl p-6 sm:p-8 shadow-xl">
                     <h3 class="text-2xl font-bold mb-2">Request a Free Quote</h3>
                     <p class="text-xs text-gray-500 mb-6">Fill in your details and we will call or message you shortly.</p>
@@ -685,7 +654,6 @@
                 </div>
             </div>
 
-            <!-- FOOTER REPEATING VALUE PROPS BAR -->
             <div class="border-t border-white/10 pt-8 mt-8">
                 <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-xs sm:text-sm font-bold text-gray-300">
                     <span class="flex items-center gap-2">
@@ -706,9 +674,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE CALCULATOR & MENU SCRIPT -->
     <script>
-        // Interactive Calculator Function
         function calculateEstimate() {
             const calcType = document.getElementById('calc-type').value;
             const inputVal = parseFloat(document.getElementById('calc-input').value) || 0;
@@ -728,7 +694,6 @@
             resultDisplay.innerText = 'Ksh ' + total.toLocaleString();
         }
 
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
